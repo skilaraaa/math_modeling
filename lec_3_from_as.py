@@ -1,0 +1,1 @@
+from lec_my_module import earth_math as em
