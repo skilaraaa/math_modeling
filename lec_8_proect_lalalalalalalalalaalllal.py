@@ -6,7 +6,7 @@ from random import random
 
 def turtle_move(angle_vel, time, alpha0, phi0):
     alpha = angle_vel * np.pi / 180 * time + alpha0
-    R = 4 * np.e ** (- 0.1 * alpha)
+    R = 0 * np.e ** (- 0.1 * alpha)
     x = R * np.cos(alpha)
     y = R * np.sin(alpha)
     X = x * np.cos(phi0) - y * np.sin(phi0)
@@ -30,9 +30,13 @@ if __name__ == '__main__':
 
     angle = []
     phi = []
+    rad = []
+    R = []
     for i in range(len(balls)):
         angle.append(2 * np.pi * random())
         phi.append(2 * np.pi * random())
+        rad.append(300 * np.pi * random())
+        R.append(100 * np.pi * random())
 
  
     edge = 3
