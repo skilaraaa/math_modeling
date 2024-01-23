@@ -25,7 +25,7 @@ if __name__ == '__main__':
 
     balls = []
     for i in range(100):
-        ball, = plt.plot([], [], 'o', color='c', label='turtle')
+        ball, = plt.plot([], [], 'o', color='navy', label='turtle')
         balls.append(ball)
 
     angle = []
@@ -44,4 +44,4 @@ if __name__ == '__main__':
                         frames=360,
                         interval=30)
  
-    ani.save('animation_22.gif')
+    ani.save('animation_28.gif')
