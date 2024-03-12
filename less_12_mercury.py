@@ -66,9 +66,9 @@ y20 = 0.387 * 149 * 10**9
 v_y20 = 0
 
 x30 = 0
-v_x20 = -47360
-y20 = 0.387 * 149 * 10**9
-v_y20 = 0
+v_x30 = -47360
+y30 = 0.387 * 149 * 10**9
+v_y30 = 0
 
  
 s0 = (x10, v_x10, y10, v_y10,
@@ -96,7 +96,7 @@ def solve_func(i, key):
         y1 = sol[:i, 2]
         x2 = sol[:i, 4]
         y2 = sol[:i, 6]
-         x3 = sol[i, 8]
+        x3 = sol[i, 8]
         y3 = sol[i, 10]
         x4 = sol[i, 12]
         y4 = sol[i, 14]
@@ -144,7 +144,7 @@ def animate(i):
  
  
   
- ani = FuncAnimation(fig, animate, frames=frames, interval=30)
+ani = FuncAnimation(fig, animate, frames=frames, interval=30)
  
 plt.axis('equal')
 edge = 2 * x10
