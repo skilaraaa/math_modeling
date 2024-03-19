@@ -147,4 +147,4 @@ edge = 2 * x10
 ax.set_xlim(-edge, edge)
 ax.set_ylim(-edge, edge)
 
-ani.save("Выборымои.gif")
+ani.save("Выборьмои.gif")

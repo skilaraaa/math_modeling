@@ -70,6 +70,16 @@ v_x30 = -47360
 y30 = 0.387 * 149 * 10**9
 v_y30 = 0
 
+x40 = 0
+v_x40 = -47360
+y40 = 0.387 * 149 * 10**9
+v_y40 = 0
+
+x50 = 0
+v_x50 = -47360
+y50 = 0.387 * 149 * 10**9
+v_y50 = 0
+
  
 s0 = (x10, v_x10, y10, v_y10,
       x20, v_x20, y20, v_y20,
@@ -78,71 +88,19 @@ s0 = (x10, v_x10, y10, v_y10,
       x50, v_x50, y50, v_y50,)
 sol = odeint(move_func, s0, t)
  
-# Решаем систему диф. уравнений
-def solve_func(i, key):
-    if key == 'point':
-        x1 = sol[i, 0]
-        y1 = sol[i, 2]
-        x2 = sol[i, 4]
-        y2 = sol[i, 6]
-        x3 = sol[i, 8]
-        y3 = sol[i, 10]
-        x4 = sol[i, 12]
-        y4 = sol[i, 14]
-        x5 = sol[i, 16]
-        y25= sol[i, 18]
-    else:
-        x1 = sol[:i, 0]
-        y1 = sol[:i, 2]
-        x2 = sol[:i, 4]
-        y2 = sol[:i, 6]
-        x3 = sol[i, 8]
-        y3 = sol[i, 10]
-        x4 = sol[i, 12]
-        y4 = sol[i, 14]
-        x5 = sol[i, 16]
-        y25= sol[i, 18]
-    return ((x1, y1), (x2, y2),(x3, y3),(x4, y4),(x5, y5))
- 
-# Строим решение в виде графика и анимируем
 fig, ax = plt.subplots()
  
-ball1, = plt.plot([], [], 'o', color='b')
-ball_line1, = plt.plot([], [], '-', color='b')
+balls = []
+balls_lines = []
  
-ball2, = plt.plot([], [], 'o', color='r')
-ball_line2, = plt.plot([], [], '-', color='r')
-
-ball3, = plt.plot([], [], 'o', color='r')
-ball_line3, = plt.plot([], [], '-', color='r')
-
-ball4, = plt.plot([], [], 'o', color='r')
-ball_line4, = plt.plot([], [], '-', color='r')
-
-ball5, = plt.plot([], [], 'o', color='r')
-ball_line5, = plt.plot([], [], '-', color='r')
- 
-plt.plot([0], [0], 'o', color='y', ms=20)
- 
+for i in range(5):
+    balls.append(plt.plot([], [], 'o', color='r'))
+    balls_lines.append(plt.plot([], [], '-', color='r'))
  
 def animate(i):
-    ball1.set_data(solve_func(i, 'point')[0])
-    ball_line1.set_data(solve_func(i, 'line')[0])
- 
-    ball2.set_data(solve_func(i, 'point')[1])
-    ball_line2.set_data(solve_func(i, 'line')[1])
-
-    ball3.set_data(solve_func(i, 'point')[1])
-    ball_line3.set_data(solve_func(i, 'line')[1])
-
-    ball4.set_data(solve_func(i, 'point')[1])
-    ball_line4.set_data(solve_func(i, 'line')[1])
-
-    ball5.set_data(solve_func(i, 'point')[1])
-    ball_line5.set_data(solve_func(i, 'line')[1])
- 
- 
- 
+    for j in range(5):
+        balls[j][0].set_data(sol[i, 4*j], sol[i, 4*j+2])
+        balls_lines[j][0].set_data(sol[:i, 4*j], sol[:i, 4*j+2])
   
 ani = FuncAnimation(fig, animate, frames=frames, interval=30)
  
@@ -151,4 +109,4 @@ edge = 2 * x10
 ax.set_xlim(-edge, edge)
 ax.set_ylim(-edge, edge)
  
-ani.save("РАШААА.gif")
+ani.save("РясиА.gif")
